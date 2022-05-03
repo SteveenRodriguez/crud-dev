@@ -1,4 +1,5 @@
 import React, { useContext, useReducer, useEffect, useRef, useState, createContext } from 'react';
+import { FcBusinessContact, FcDocument, FcFinePrint, FcFullTrash, FcSynchronize } from "react-icons/fc";
 
 const HOST_API = "http://localhost:8080/api";
 const initialState = {
@@ -64,7 +65,6 @@ const Form = () => {
 
   return <form ref={formRef}>
     <input
-      class="navbar navbar-light bg-light"
       type="text"
       name="name"
       placeholder="¿Qué piensas hacer hoy?"
@@ -88,7 +88,7 @@ const List = () => {
       .then((list) => {
         dispatch({ type: "update-list", list });
       });
-  }, [dispatch]); //aquí toca revisar
+  }, [dispatch]);
 
 
   const onDelete = (id) => {
@@ -129,9 +129,9 @@ const List = () => {
     <table >
       <thead>
         <tr>
-          <td>ID</td>
-          <td>Tarea</td>
-          <td>¿Completado?</td>
+          <td> <FcBusinessContact />ID</td>
+          <td> <FcDocument /> Tarea </td>
+          <td> <FcFinePrint />¿Completado?</td>
         </tr>
       </thead>
       <tbody>
@@ -139,9 +139,9 @@ const List = () => {
           return <tr key={todo.id} style={todo.completed ? decorationDone : {}}>
             <td>{todo.id}</td>
             <td>{todo.name}</td>
-            <td><input type="checkbox" defaultChecked={todo.completed} onChange={(event) => onChange(event, todo)}></input></td>
-            <td><button onClick={() => onDelete(todo.id)} class="btn btn-danger">Eliminar</button></td>
-            <td><button onClick={() => onEdit(todo)} class="btn btn-primary">Editar</button></td>
+            <td><input class="container" type="checkbox" defaultChecked={todo.completed} onChange={(event) => onChange(event, todo)}></input></td>
+            <td><button onClick={() => onDelete(todo.id)} class="btn btn-danger"> <FcFullTrash /> Eliminar</button></td>
+            <td><button onClick={() => onEdit(todo)} class="btn btn-primary"> <FcSynchronize /> Editar</button></td>
           </tr>;
         })}
       </tbody>
