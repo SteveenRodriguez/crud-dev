@@ -1,3 +1,7 @@
+# Video de explicación de las 2 mejoras
+
+[Link explicación de las mejores](https://youtu.be/cg4h1evqJz0)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
